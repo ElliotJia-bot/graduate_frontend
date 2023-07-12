@@ -1,5 +1,5 @@
 import React from 'react'
-
+// 这一部分是专家进入面试以后的页面
 const ExerciseList = () => {
   const { interviewStore, exerciseStore } = useStores()
   exerciseStore.allTypes.length || exerciseStore.getAllTypes()

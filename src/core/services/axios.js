@@ -19,6 +19,7 @@ Object.values(responseInterceptors).forEach((fn) => {
   fn?.(instance)
 })
 
+// （使用Axios）封装了一个通用的HTTP请求函数，用于简化发送HTTP请求的代码，并在请求成功或失败时显示相应的提示信息
 const request = (url, params = {}, type) => {
   let realData = {
     data: params,
@@ -40,7 +41,7 @@ const request = (url, params = {}, type) => {
         if ([res?.data?.code].includes(BACKEND_STATUS.SUCCESS)) resolve(res)
         else
           message.error(
-            res?.data?.msg ?? res?.data?.message ?? '系统错误，请联系管理员'
+            res?.data?.msg ?? res?.data?.message ?? '系统错误，请联系管理员' // 目前是统一的报错提示，待修改
           )
       })
       .catch((err) => {
@@ -48,6 +49,7 @@ const request = (url, params = {}, type) => {
         reject(err)
       })
       .finally(() => {
+        // 不管成不成功都要执行的操作，避免在then和catch中重复写代码
         // TODO: 添加加载spin特效
       })
   })

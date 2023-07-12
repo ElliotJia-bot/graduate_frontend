@@ -6,8 +6,9 @@ export const fromPermissionToRouteMapper = (urlPermission) => {
     key: api_route_name,
     _id,
     permission_pid,
-    type,
+    type, // 映射到meta.permissionType属性（但是这里用的是type字段保存）
   }
+  // 将权限对象中的URL、名称、图标等属性映射到路由对象中的path、name、meta等属性上
 }
 
 export const fromPermissionToTreeMapper = (permission) => {

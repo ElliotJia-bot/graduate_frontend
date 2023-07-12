@@ -4,10 +4,10 @@ import ExerciseList from './component/ExerciseList'
 import GenernateBtn from './component/GenernateBtn'
 import StudentExercise from './component/StudentExercise'
 import VideoFC from './component/VideoFC'
-// 面试界面
+// 专家面试界面(面试相关，面试记录进去的部分) 这一部分学生专家端公用
 const Interview = () => {
   const loginData = JSON.parse(localStorage.getItem('loginData'))
-  const isStudent = loginData.role_id === ROLE_TYPE.STUDENT
+  const isStudent = loginData.role_id === ROLE_TYPE.STUDENT// 注册页面复用一下？
   const { id: _id } = useParams()
   const { interviewStore } = useStores()
   interviewStore.getInterviewRecord(_id)
@@ -34,6 +34,7 @@ const Interview = () => {
               : interviewStore.interview_stu
           }
         />
+          {/* {这里通过三目运算符判断使用专家端UI还是学生端UI} */}
         <div className="w-[21.5vw] h-[70vh]">
           <div
             className={`flex flex-col gap-[5px] ${isStudent ? 'hidden' : ''}`}

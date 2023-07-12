@@ -1,6 +1,6 @@
-import Crypto from '@/utils/crypto'
 import axios from 'axios'
-import keyStore from '../tokenStore'
+// import Crypto from '@/utils/crypto'
+// import keyStore from '../tokenStore'
 
 const axiosInstance = axios.create({
   baseURL: `${import.meta.env.VITE_BASEURL}/api`,
@@ -37,15 +37,16 @@ export const tokenJudgeConfig = (instance) => {
   )
 }
 
-export const deCryptoGram = (instance) => {
-  instance?.interceptors.response.use(
-    (config) => {
-      const data = JSON.parse(
-        Crypto.decryptByAES(config.data, keyStore.shift())
-      )
-      config.data = data
-      return config
-    },
-    (error) => new Error(error)
-  )
-}
+// export const deCryptoGram = (instance) => {
+//   instance?.interceptors.response.use(
+//     (config) => {
+//       const data = JSON.parse(
+//         Crypto.decryptByAES(config.data, keyStore.shift())
+//       )
+//       config.data = data
+//       return config
+//     },
+//     (error) => new Error(error)
+//   )
+// }
+// 测试时注释掉，以便明文传输

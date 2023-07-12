@@ -19,4 +19,4 @@ export const stores = createStores()
 
 export const StoresContext = createContext(stores)
 
-export const useStores = () => useContext(StoresContext)
+export const useStores = () => useContext(StoresContext) // 使用 useContext 来访问 StoreContext 上下文对象中的数据

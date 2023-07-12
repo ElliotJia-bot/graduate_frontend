@@ -10,12 +10,12 @@ const getTableData =
     return myApi?.(params).then((res) => {
       const {
         data: {
-          data: { list, count },
+          data: { list, count:total }, // 修改为调试
         },
       } = res
       return {
         list,
-        count,
+        total,
       }
     })
   }

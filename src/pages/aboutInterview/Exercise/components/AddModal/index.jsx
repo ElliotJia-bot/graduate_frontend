@@ -5,7 +5,7 @@ const { Item } = Form
 const RULE = [{ required: true }]
 
 const AddModal = ({ render, onOk }) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)// 控制模态框的显示和隐藏
   const [formInstance] = Form.useForm()
   const click = () => {
     setOpen(!open)

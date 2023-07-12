@@ -10,7 +10,7 @@ const UpdateModal = ({ render, onOk, defaultValue }) => {
   const [id] = useState(defaultValue._id)
   const click = () => {
     setOpen?.(!open)
-  }
+  }// 这里的default value有问题，ant的default value无法传到后端
 
   useEffect(() => {
     formInstance?.setFieldsValue({

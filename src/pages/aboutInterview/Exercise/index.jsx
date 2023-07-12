@@ -9,8 +9,8 @@ import { formConfig } from './configs/form.config'
 
 // 面试题库管理(专家端才有)
 const Exercise = () => {
-  const [formInstance] = Form.useForm()
-  const { exerciseStore } = useStores()
+  const [formInstance] = Form.useForm()// 使用 Form.useForm() 创建一个表单实例，并将其赋值给 formInstance 变量
+  const { exerciseStore } = useStores()// 使用 useStores() 钩子函数获取应用程序的状态管理对象，并将其解构为 exerciseStore 变量
   const { tableProps, refresh, search } = useAntdTable(
     getTableData(exerciseList),
     {
